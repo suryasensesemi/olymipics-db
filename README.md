@@ -49,3 +49,26 @@ This small table lists the different medals available: Gold, Silver, Bronze, and
 
 **Competitor Event**
 This table lists the combination of competitors (the people and the games they competed in), the event they competed in, and the medal (if any) they received. This is the largest table.
+
+
+**Sample Query**
+With the sample data in the database, let’s take a look at a sample query. This query shows the people who have won the most medals of any type (Gold, Silver, Bronze) at the Olympic Games.
+
+SELECT
+p.id,
+p.full_name,
+COUNT(*)
+FROM person p
+INNER JOIN games_competitor gc ON p.id = gc.person_id
+INNER JOIN competitor_event ce ON gc.id = ce.competitor_id
+INNER JOIN medal m ON ce.medal_id = m.id
+WHERE medal_name IN ('Gold', 'Silver', 'Bronze')
+GROUP BY p.id, p.full_name
+ORDER BY COUNT(*) DESC;
+
+_Results (top 20):_
+
+![image](https://github.com/user-attachments/assets/4669765e-1ea0-4423-be6f-f6889b61c38e)
+
+
+
