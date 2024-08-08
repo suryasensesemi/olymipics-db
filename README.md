@@ -76,6 +76,6 @@ Procedure to resolve above error is to:
 - Step-01: Go to Xampp control pannel and click on config button in MYSQL module.
 - Step-02: Open my.ini file.
 - Step-03: Find for 'max_allowed_packet'.
-- Step-04: Set 'max_allowed_packet' is 50mb.
+- Step-04: Set 'max_allowed_packet' is 50M.
 - Step-05: Save it.
 - Step-06: Now enter the below query to check the database size - 'show variables like 'max_allowed_packet'.
